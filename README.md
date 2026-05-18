@@ -228,22 +228,50 @@ USER ||--o{ RETURNHISTORY : has
 # 🔄 Workflow Overview
 
 ```mermaid
-flowchart LR
+flowchart TD
 
-A[User Scans Barcode]
---> B[Barcode Validation]
+%% =========================
+%% Main Workflow
+%% =========================
 
-B --> C[Plastic Return Verification]
+A([📱 User Scans Barcode])
+--> B{{🔍 Barcode Validation}}
 
-C --> D[EcoPoints Calculation]
+B --> C[♻️ Plastic Return Verification]
 
-D --> E[Database Update]
+C --> D[💰 EcoPoints Calculation]
 
-E --> F[Dashboard Analytics]
+D --> E[(🗄️ Database Update)]
 
-F --> G[Summary Email Notification]
+E --> F[📊 Dashboard Analytics]
+
+F --> G([📧 Summary Email Notification])
+
+%% =========================
+%% Styling
+%% =========================
+
+classDef startEnd fill:#00B894,color:#ffffff,stroke:#00695C,stroke-width:3px;
+classDef process fill:#DFF9E4,color:#000000,stroke:#27AE60,stroke-width:2px;
+classDef decision fill:#55EFC4,color:#000000,stroke:#009688,stroke-width:3px;
+classDef database fill:#C7F9CC,color:#000000,stroke:#2E7D32,stroke-width:3px;
+
+class A,G startEnd;
+class B decision;
+class C,D,F process;
+class E database;
+
+%% =========================
+%% Link Styling
+%% =========================
+
+linkStyle 0 stroke:#27AE60,stroke-width:3px;
+linkStyle 1 stroke:#27AE60,stroke-width:3px;
+linkStyle 2 stroke:#27AE60,stroke-width:3px;
+linkStyle 3 stroke:#27AE60,stroke-width:3px;
+linkStyle 4 stroke:#27AE60,stroke-width:3px;
+linkStyle 5 stroke:#27AE60,stroke-width:3px;
 ```
-
 ---
 
 # 📂 Project Structure
